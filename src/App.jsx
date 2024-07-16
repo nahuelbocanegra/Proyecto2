@@ -18,25 +18,34 @@ function App() {
   
   return (
     <main>
+      <section>
+
         <ul className='Fecha'>
             <li>Domingo</li>
             <li>19:58</li>
             <li>Pm</li>
         </ul>
-    
+        <ul className='diasSemana'>
+          <li>L</li>
+          <li>M</li>
+          <li>M</li>
+          <li>J</li>
+          <li>V</li>
+          <li>S</li>
+          <li>D</li>
+        </ul>
         {meses.map((mes)=>{
-
               return(
                 <div className='contenedor-calendario' key={mes.id}>
-                  <h2 className='title-mes'>{mes.mes}</h2>
                   <ul className='mes' >{mes.dias.map((num)=>{
                      return <li className="dia" key={num}>{num}</li>
-                  })}</ul>
+                    })}</ul>
                 </div>
               )  
-
+              
             })
-        }
+          }
+        </section>
     </main>
   )
 }
