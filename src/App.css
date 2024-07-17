@@ -1,85 +1,107 @@
-
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  
 
 }
-main{
+
+main {
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  width: 100%;
+  gap: 10px;
+ padding: 5px;
+
+}
+
+.contenedor-calendario {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.diasSemana {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
   padding: 5px;
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-section{
-  max-width: 700px;
-  width: 100%;
-  
-}
-.contenedor-calendario{
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  list-style: none;
+  text-align: center;
 
 }
-.diasSemana{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-    padding: 10px;
-    list-style: none;
-    text-align: center;
-   
-}
-.diasSemana li{
+
+.diasSemana li {
   background-color: white;
   height: 30px;
   border-radius: 5px;
   color: black;
 }
-.mes{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
 
-    gap: 5px;
-    padding: 10px;
-  /*
+.mes {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(7,1fr);
-  grid-template-rows: auto;
-  list-style: none;
-  grid-gap: 5px;
-  */
+  grid-template-columns: repeat(7, 1fr);
+  padding: 5px;
+  gap: 5px;
+
+
 }
-.Fecha{
+
+.Fecha {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   list-style: none;
   gap: 5px;
   font-size: 1.1rem;
 }
+.contenedorFecha{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
-.title-mes{
+.contenedorFlecha button{
+  border: 2px solid white;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  
+}
+
+.title-mes {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: left;
 }
-.dia{
-  height: 80px;
+
+.dia {
+  height: 70px;
   background-color: blueviolet;
   display: flex;
   justify-content: flex-start;
@@ -89,7 +111,7 @@ section{
   border-radius: 3px;
 }
 
-.dia:hover{
+.dia:hover {
   scale: 1.1;
   background-color: brown;
 }

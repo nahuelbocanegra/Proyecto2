@@ -1,31 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import meses from "./assets/js/meses";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const meses=[
-    {
-      id:1,
-      mes:"Enero",
-      dias:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
-                                   11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
-                                   21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+  const data=new Date()
+
+  const año=data.getFullYear()
+  const mes=data.getMonth()+1
+  const dia=data.getDate()
+
+  const formatoFecha=`${dia}/${mes}/${año}`
+
+  const [count, setCount] = useState(2);
+  const mesReduce = meses.find((mes, i) => i === count);
+  const adelante = () => {
+    console.log(count);
+    if (count >= 11) {
+      setCount(0);
+    } else {
+      setCount(count + 1);
     }
-   
-                                ]
-  
+  };
+  const atras = () => {
+    console.log(count);
+    if (count <= 0) {
+      setCount(11);
+    } else {
+      setCount(count - 1);
+    }
+  };
+
   return (
     <main>
       <section>
+        <h2 className="title-mes">{mesReduce && <>{mesReduce.mes}</>}</h2>
+        <ul className="Fecha">
+          <li className="contenedorFlecha">
+            <button   onClick={atras}><i class='bx bxs-chevron-left'></i></button>
+          </li>
+          <li className="contenedorFecha">
+              <p>{formatoFecha}</p>
+            
+          </li>
 
-        <ul className='Fecha'>
-            <li>Domingo</li>
-            <li>19:58</li>
-            <li>Pm</li>
+          <li className="contenedorFlecha">
+            <button onClick={adelante}><i class='bx bxs-chevron-right'></i></button>
+          </li>
         </ul>
-        <ul className='diasSemana'>
+        <ul className="diasSemana">
           <li>L</li>
           <li>M</li>
           <li>M</li>
@@ -34,20 +56,24 @@ function App() {
           <li>S</li>
           <li>D</li>
         </ul>
-        {meses.map((mes)=>{
-              return(
-                <div className='contenedor-calendario' key={mes.id}>
-                  <ul className='mes' >{mes.dias.map((num)=>{
-                     return <li className="dia" key={num}>{num}</li>
-                    })}</ul>
-                </div>
-              )  
-              
-            })
-          }
-        </section>
+        <div className="contenedor-calendario">
+          <ul className="mes">
+            {mesReduce && (
+              <>
+                {mesReduce.dias.map((dia) => {
+                  return (
+                    <li key={dia} className="dia">
+                      {dia}
+                    </li>
+                  );
+                })}
+              </>
+            )}
+          </ul>
+        </div>
+      </section>
     </main>
-  )
+  );
 }
 
 export default App;
